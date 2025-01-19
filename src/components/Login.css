@@ -1,0 +1,167 @@
+/* Login.css */
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background-color: #f7f7f7;
+    color: #333;
+  }
+  
+  /* Login Page Container */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #667eea, #764ba2);
+  }
+  
+  .login-box {
+    background-color: rgba(0, 0, 0, 0.7); /* semi-transparent dark background */
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  h2 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .input-group label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #f6d365;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1rem;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    margin-top: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .input-field:focus {
+    border-color: #f6d365;
+    box-shadow: 0 0 8px rgba(246, 211, 101, 0.7);
+    outline: none;
+  }
+  
+  .submit-btn {
+    padding: 14px 25px;
+    font-size: 1.25rem;
+    background-color: #f6d365;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #fda085;
+    transform: translateY(-3px);
+  }
+  
+  .submit-btn:active {
+    transform: translateY(1px);
+  }
+  
+  .error-message {
+    color: #ff4d4d;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  .success-message {
+    color: #4caf50;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    animation: fadeInSuccess 1s ease-in-out;
+  }
+  
+  .signup-prompt {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #fff;
+  }
+  
+  .signup-link {
+    color: #f6d365;
+    text-decoration: none;
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .login-box {
+      padding: 30px;
+      max-width: 90%;
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  
+    .input-field {
+      padding: 12px;
+      font-size: 1rem;
+    }
+  
+    .submit-btn {
+      padding: 12px 20px;
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Animation for login box */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animation for success message */
+  @keyframes fadeInSuccess {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

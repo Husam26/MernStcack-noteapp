@@ -1,0 +1,547 @@
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Container for the notes */
+.notes-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  background: linear-gradient(145deg, #6c7ae0, #4a53b5);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Heading styles */
+h1, h2 {
+  color:white;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Message styles */
+.message {
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  transition: opacity 0.3s ease-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.success {
+  background-color: rgba(40, 167, 69, 0.8);
+  color: #fff;
+}
+
+.error {
+  background-color: rgba(220, 53, 69, 0.8);
+  color: #fff;
+}
+
+/* Theme toggle section */
+.theme-toggle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle select {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle select:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle select:focus {
+  border-color: #007bff;
+}
+
+/* Search bar styling */
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Note form styling */
+.note-form {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  transition: transform 0.3s ease;
+}
+
+.note-form:hover {
+  transform: scale(1.03);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 16px;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.input-field:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #007bff;
+  outline: none;
+}
+
+.submit-btn, .cancel-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.submit-btn:hover, .cancel-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.submit-btn {
+  background-color: #28a745;
+}
+
+.cancel-btn {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
+
+/* Notes list */
+.notes-list {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.note-item {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  max-height: 300px; /* Set a maximum height for note items */
+  overflow: hidden; /* Hide overflow to prevent ugly structure */
+  position: relative; /* For positioning the 'Expand' button */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.note-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.note-item h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.note-item p {
+  color: #ccc;
+  font-size: 16px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  overflow: hidden; /* To ensure the text truncates */
+  text-overflow: ellipsis; /* Adds "..." when text overflows */
+  white-space: nowrap; /* Ensure the text is in a single line */
+}
+
+.note-item .note-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 150px; /* Set a max-height for the note content section */
+  line-height: 1.5;
+}
+
+/* Button styles */
+button {
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px; /* Round buttons */
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.edit-btn {
+  background-color: #4CAF50; /* Green for Edit */
+  color: #fff;
+  border: 2px solid #4CAF50;
+  margin-bottom: 8px;
+}
+
+.delete-btn {
+  background-color: #F44336; /* Red for Delete */
+  color: #fff;
+  border: 2px solid #F44336;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  transform: scale(1.05);
+}
+
+.edit-btn:active, .delete-btn:active {
+  transform: scale(1);
+}
+
+.edit-btn:hover {
+  background-color: #45a049; /* Darker green for hover */
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f; /* Darker red for hover */
+}
+
+/* Expand button redesign */
+.expand-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  align-self: flex-start;
+  display: none; /* Hide by default, will be shown for long content */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.expand-btn:hover {
+  background-color: #0056b3; /* Hover color */
+  transform: translateY(-2px);
+}
+
+.note-item .expanded .expand-btn {
+  display: block; /* Show expand button if content is expanded */
+  margin-top: 0;
+  background-color: #dc3545;
+}
+
+.note-item .expanded .expand-btn:hover {
+  background-color: #c82333; /* Darker red when expanded */
+}
+
+/* Light theme button colors */
+body.light .edit-btn {
+  background-color: #45a049;
+  color: #fff;
+  border: 2px solid #45a049;
+}
+
+body.light .delete-btn {
+  background-color: #f44336;
+  color: #fff;
+  border: 2px solid #f44336;
+}
+
+body.light .expand-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+body.light .expand-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+body.light .expanded .expand-btn {
+  display: block;
+  margin-top: 0;
+  background-color: #dc3545;
+}
+
+/* Responsive design for mobile view */
+@media (max-width: 768px) {
+  .notes-container {
+    padding: 20px;
+  }
+
+  .note-form {
+    padding: 20px;
+  }
+
+  .note-item {
+    padding: 18px;
+  }
+
+  .input-field {
+    font-size: 14px;
+  }
+
+  .submit-btn, .cancel-btn {
+    padding: 12px 18px;
+  }
+
+  .notes-list {
+    margin-top: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #000;
+}
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+/* View Button Styles */
+.view-btn {
+  background-color: #4CAF50; /* Green color */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 7px;
+}
+
+.view-btn:hover {
+  background-color: #45a049; /* Darker green when hovered */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.view-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(72, 162, 72, 0.6); /* Outline on focus for accessibility */
+}
+
+.view-btn:active {
+  background-color: #3e8e41; /* Even darker green when clicked */
+}
+
+
+
+/* General Button Styles */
+button {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button i {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+/* View Button Styles */
+.view-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.view-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(72, 162, 72, 0.6);
+}
+
+.view-btn:active {
+  background-color: #3e8e41;
+}
+
+/* Edit Button Styles */
+.edit-btn {
+  background-color: #FFC107;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+  transform: scale(1.05);
+}
+
+.edit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.6);
+}
+
+.edit-btn:active {
+  background-color: #cc8e00;
+}
+
+/* Delete Button Styles */
+.delete-btn {
+  background-color: #F44336;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+
+.delete-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.6);
+}
+
+.delete-btn:active {
+  background-color: #d32f2f;
+}
+#modal-title{
+  color: black;
+}
